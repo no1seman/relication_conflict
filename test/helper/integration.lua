@@ -13,11 +13,16 @@ helper.cluster = cartridge_helpers.Cluster:new({
         {
             alias = 'api',
             uuid = cartridge_helpers.uuid('a'),
-            roles = {'app.roles.custom'},
+            roles = { 'vshard-router', 'app.roles.api'  },
+            servers = { { instance_uuid = cartridge_helpers.uuid('a', 1) } },
+        },
+        {
+            alias = 'storage-1',
+            uuid = cartridge_helpers.uuid('b'),
+            roles = { 'vshard-storage', 'app.roles.storage' },
             servers = {
-                {
-                    instance_uuid = cartridge_helpers.uuid('a', 1)
-                }
+                { instance_uuid = cartridge_helpers.uuid('b', 1), },
+                { instance_uuid = cartridge_helpers.uuid('b', 2), },
             },
         },
     },
