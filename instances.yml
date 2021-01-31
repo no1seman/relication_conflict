@@ -1,0 +1,24 @@
+---
+newapp.router:
+  advertise_uri: localhost:3301
+  http_port: 8081
+
+newapp.s1-master:
+  advertise_uri: localhost:3302
+  http_port: 8082
+
+newapp.s1-replica:
+  advertise_uri: localhost:3303
+  http_port: 8083
+
+newapp.s2-master:
+  advertise_uri: localhost:3304
+  http_port: 8084
+
+newapp.s2-replica:
+  advertise_uri: localhost:3305
+  http_port: 8085
+
+newapp-stateboard:
+  listen: localhost:3310
+  password: passwd
