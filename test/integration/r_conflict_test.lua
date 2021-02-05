@@ -1,6 +1,6 @@
 local t = require('luatest')
 local g = t.group('replication_conflict')
-local json = require('json')
+local yaml = require('yaml')
 
 local helper = require('test.helper.integration')
 local cluster = helper.cluster
@@ -49,4 +49,5 @@ g.test_replication_conflict = function()
     require('fiber').sleep(5)
     -- check replication status
     t.assert_equals(storage_1.net_box:eval('return box.info.replication[2].downstream.status'), 'follow')
+    t.assert_equals(storage_2.net_box:eval('return box.info.replication[1].downstream.status'), 'follow')
 end
